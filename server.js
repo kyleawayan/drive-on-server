@@ -9,8 +9,9 @@ io.on("connection", (client) => {
     client.join(room);
     client.in(room).emit("event", "someone joined");
   });
-  client.on("event", (data) => {
-    console.log(data);
+  client.on("newuser", ({ room, username }) => {
+    client.to(room).emit("newuser", username);
+    console.log(room, username);
   });
   client.on("disconnect", () => {});
 });

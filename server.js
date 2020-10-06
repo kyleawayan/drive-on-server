@@ -13,6 +13,10 @@ io.on("connection", (client) => {
     client.to(room).emit("newuser", username);
     console.log(room, username);
   });
+  client.on("newlocation", ({ room, lat, lng }) => {
+    client.to(room).emit("newlocation", { lat: lat, lng: lng });
+    console.log(room, lat, lng);
+  });
   client.on("disconnect", () => {});
 });
 server.listen(8000);

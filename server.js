@@ -21,13 +21,21 @@ io.on("connection", (client) => {
     console.log(room, lat, lng);
   });
 
-  client.on("guesslocation", ({ room, username, distance }) => {
-    console.log(room, username, distance);;;;
+  client.on("guesslocation", ({ room, username, distance, guess }) => {
+    console.log(room, username, distance, guess);
     client
 
       .to(room)
 
-      .emit("results", { username: username, distance: distance });
+      .emit("results", {
+     
+          username: username,
+     
+          distance: distance,
+      
+         typedguess: guess,
+  
+      });
   });
 
   client.on("disconnect", () => {});

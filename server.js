@@ -5,7 +5,6 @@ const io = require("socket.io")(server);
 io.on("connection", (client) => {
   client.on("room", function (room) {
     console.log(`someone joined room ${room}`);;
-    console.log(room);
     client.join(room);
     client.in(room).emit("event", "someone joined");
   });
@@ -22,9 +21,8 @@ io.on("connection", (client) => {
   });
 
   client.on("newlocation", ({ room, lat, lng }) => {
-    console.log(`${room} is at ${lat} ${long}`);;
+    console.log(`${room} is at ${lat} ${lng}`);
     client.to(room).emit("newlocation", { lat: lat, lng: lng });
-    console.log(room, lat, lng);
   });
 
   client.on("guesslocation", ({ room, username, distance, guess }) => {

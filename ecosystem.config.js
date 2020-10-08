@@ -3,7 +3,10 @@ module.exports = {
     {
       name: "drive-on-server",
       script: "npm",
-      args: "start 3000",
+      args: "start",
+      env: {
+        PORT: "3000",
+      },
     },
   ],
 

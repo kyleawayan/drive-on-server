@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "drive-on-server",
       script: "npm",
-      watch: "start",
+      args: "start",
     },
   ],
 

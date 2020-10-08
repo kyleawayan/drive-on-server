@@ -11,7 +11,7 @@ module.exports = {
     production: {
       user: "bitnami",
       host: "driveonserver",
-      ref: "origin/master",
+      ref: "origin/main",
       repo: "https://github.com/kyleawayan/drive-on-server",
       path: "/home/bitnami/driveonserver",
       "pre-deploy-local": "",

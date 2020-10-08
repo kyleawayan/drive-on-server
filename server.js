@@ -16,6 +16,10 @@ io.on("connection", (client) => {
     console.log(room, username);
   });
 
+  client.on("startnewlocation", (room) => {
+    client.to(room).emit("startnewlocation", "starting");
+  });
+
   client.on("newlocation", ({ room, lat, lng }) => {
     client.to(room).emit("newlocation", { lat: lat, lng: lng });
     console.log(room, lat, lng);
